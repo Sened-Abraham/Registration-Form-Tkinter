@@ -1,10 +1,9 @@
-# Program/Class Name: Registartion Form
-# Author(s): Sened and Ghaida
-# Desc: This is GUI program for Registration Form, it checks the inputs, writes to text file
-# Date of Creation:5/5/2022
+
+# Registration Form 
 
 
-import tkinter.messagebox      # importing message box and all classes found in tkinter
+
+import tkinter.messagebox    
 from tkinter import *
 
 # assigning root variable to start tkinter
@@ -58,36 +57,36 @@ label5= Label(root, text="Programming", width=20, font=("bold",10))
 label5.place(x=85,y=330)
 
 
-# assigning different variable to the two check buttons to indicate that either or both can be selected at a time
+
 var1=IntVar()
 Checkbutton(root,text='java',variable=var1).place(x=235,y=330)
 
 var2=IntVar()
 Checkbutton(root,text="python",variable=var2).place(x=290,y=330)
 
-# creating a function called save info which is triggred after the submit button is clicked
+
 def save_info():
-    if label1_entry1.get() != '' and label2_entry2.get() !='':  # to check if the user entered value for both entries
-        handle=open("information.txt","w")    # opening a file to write all the entered info of a user
+    if label1_entry1.get() != '' and label2_entry2.get() !='': 
+        handle=open("information.txt","w")   
         handle.write(label1_entry1.get())
         handle.write("\n")
         handle.write(label2_entry2.get())
         handle.write("\n")
-        if var.get() !=0:    # to check if the given value of gender is selected
-            if var.get()==1:   # to check the selected value and writing to file the value that number contains
+        if var.get() !=0:    
+            if var.get()==1:
                 handle.write("Male")
                 handle.write("\n")
             else:
                 handle.write("Female")
                 handle.write("\n")
-            if value.get() != '':    # to check the value of the selected country
-                handle.write(str(value.get()))  # writing the value to file
+            if value.get() != '':    
+                handle.write(str(value.get()))  
                 handle.write("\n")
-                if var1.get() and var2.get() !=0:  # to check the value of selected programming language together
+                if var1.get() and var2.get() !=0:  
                     handle.write("Java Python")
-                elif var1.get()!=0:   # to check the differently and writing their respective value to the file
+                elif var1.get()!=0:   
                     handle.write("Java")
-                elif var2.get()!=0:    # to check the differently and writing their respective value to the file
+                elif var2.get()!=0:    
                     handle.write("Python")
                     handle.close()
                 else:
@@ -99,7 +98,7 @@ def save_info():
     else:
         tkinter.messagebox.showwarning("Empty Fields", "You must enter all the needed information")
 
-# button to trigger the save info and to submit all info to file
+
 Button(root, text="Submit", width=20, bg='brown',fg='white',command=save_info).place(x=180,y=380)
 
 root.mainloop()     # to stop the loop of the tkinter
